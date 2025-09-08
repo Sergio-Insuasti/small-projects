@@ -1,5 +1,4 @@
 # Uses requests, beautiful soup and lxml to scrape data from Amazon
-# pip install requests beautifulsoup4 lxml
 
 import requests
 from bs4 import BeautifulSoup
