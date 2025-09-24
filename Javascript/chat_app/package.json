@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sergio-Insuasti/small-projects"
+    "url": "git+https://github.com/Sergio-Insuasti/small-projects/tree/main/Javascript/chat_app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sergio-Insuasti/small-projects/issues"
+    "url": "https://github.com/Sergio-Insuasti/small-projects/tree/main/Javascript/chat_app/issues"
   },
-  "homepage": "https://github.com/Sergio-Insuasti/small-projects/",
+  "homepage": "https://github.com/Sergio-Insuasti/small-projects/tree/main/Javascript/chat_app/#README",
   "dependencies": {
     "express": "^4.18.2",
     "socket.io": "^4.7.0",
