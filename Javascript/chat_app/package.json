@@ -1,0 +1,30 @@
+{
+  "name": "virtual-chat-app",
+  "version": "1.0.0",
+  "description": "A real-time virtual chat application built with Socket and Express.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "serve": "nodemon backend/server-starter.js",
+    "completed": "node backend/server-completed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergio-Insuasti/small-projects"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergio-Insuasti/small-projects/issues"
+  },
+  "homepage": "https://github.com/Sergio-Insuasti/small-projects/",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.0",
+    "unique-names-generator": "^4.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
