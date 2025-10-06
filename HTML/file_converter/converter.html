@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mystery File Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="./converterstyles.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="main-content">
+      <div class="container">
+        <h1>File Converter</h1>
+        <h2>Convert Any File, Hassle Free!</h2>
+
+        <div id="drop" class="drop" tabindex="0" role="button" aria-label="Drop a file here or press Enter to choose">
+          <input id="picker" type="file" aria-hidden="true" />
+          <div>
+            <strong>Drop a file here</strong> or <u>click to choose</u>
+            <div class="hint">We will not overwrite your file!</div>
+          </div>
+          <div id="last" class="file-name"></div>
+        </div>
+
+        <div class="actions">
+          <button id="go">Convert</button>
+        </div>
+
+        <div id="log"></div>
+      </div>
+    </div>
+
+    <footer>
+      Created by Sergio Insuasti and Jun Wei Tay
+    </footer>
+
+    <script src="./converter.js"></script>
+  </body>
+</html>

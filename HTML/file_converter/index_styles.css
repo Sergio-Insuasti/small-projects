@@ -1,0 +1,159 @@
+:root {
+  --bg1: #000;
+  --bg2: #38373a;
+  --fg: #d8e9ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background-image: linear-gradient(-20deg, var(--bg1) 0%, var(--bg2) 100%);
+  color: var(--fg);
+  font-family: 'Open Sans', system-ui, sans-serif;
+  font-size: 1.8rem;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 960px;
+  padding: 32px;
+  text-align: center;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero {
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 28px 24px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-weight: 400;
+  opacity: .9;
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 6px 0;
+  opacity: 0.7;
+  font-size: 10px;
+}
+
+#Disclaimer {
+  font-size: 10px;
+  margin: 0;
+}
+
+.cta {
+  margin-top: 22px;
+}
+
+.cta a {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 12px;
+  border: 1px solid #a8a8a8;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #111, #444);
+  font-size: 24px;
+  transition: transform .8s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.cta a:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #222, #666);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 22px;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+.card {
+  background: #ffffff12;
+  border: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.muted {
+  opacity: .75;
+  font-size: .95rem;
+}
+
+footer {
+  font-size: 12px;
+  margin-top: auto;
+  opacity: .8;
+  padding-top: 12px;
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width:800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+}

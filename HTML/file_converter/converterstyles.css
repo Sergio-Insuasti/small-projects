@@ -1,0 +1,164 @@
+:root {
+    --bg1: #000000;
+    --bg2: #38373a;
+    --fg: #d8e9ef;
+    --drop-border: #b8d4ff;
+    --drop-bg: #ffffff0f;
+    --drop-hover: #ffffff22;
+}
+
+* {
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+html {
+    background-image: linear-gradient(-20deg, var(--bg1) 0%, var(--bg2) 100%);
+    background-size: cover;
+    font-family: 'Playfair Display', system-ui, sans-serif;
+    color: var(--fg);
+    letter-spacing: .4px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 32px;
+    animation: fadeScale 600ms ease-out both;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    max-width: 720px;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0 0 6px;
+    opacity: 0;
+    animation: fadeScale 700ms ease-out 120ms both;
+}
+
+h2 {
+    margin: 0 0 16px;
+    font-weight: 400;
+    opacity: .9;
+    transform-origin: 50% 50%;
+    opacity: 0;
+    animation: fadeScale 700ms ease-out 260ms both;
+}
+
+.drop {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    position: relative;
+    border: 2px dashed var(--drop-border);
+    border-radius: 16px;
+    padding: 28px;
+    background: var(--drop-bg);
+    transition: background .2s ease, border-color .2s ease, transform .1s ease;
+    cursor: pointer;
+    outline: none;
+    transform-origin: 50% 50%;
+    opacity: 0;
+    animation: fadeScale 700ms ease-out 420ms both;
+}
+
+.drop:hover,
+.drop:focus {
+    background: var(--drop-hover);
+    border-color: #e1ecff;
+    transform: scale(1.025);
+    transition: 0.4s ease-in;
+}
+
+.drop.dragover {
+    background: #ffffff33;
+    border-color: #fff;
+}
+
+.drop .hint {
+    margin: 4px 0 0;
+    opacity: .85;
+    font-size: .95rem;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: .95rem;
+    opacity: .95;
+}
+
+.actions {
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeScale 700ms ease-out 580ms both;
+}
+
+button {
+    padding: 12px 20px;
+    border-color: #a8a8a8;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #111, #444);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform .15s ease, background .25s ease, box-shadow .25s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: 0.6s ease;
+    background: linear-gradient(135deg, #222, #666);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+#log {
+    margin-top: 14px;
+    font-size: .95rem;
+    min-height: 1.4em;
+}
+
+#picker {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+footer {
+    font-size: 12px;
+    opacity: .8;
+    text-align: center;
+    padding: 10px 0 14px;
+}
+
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
