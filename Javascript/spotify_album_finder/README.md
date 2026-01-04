@@ -1,3 +1,13 @@
+# Spotify Album Finder
+## By Sergio Insuasti
+
+### About
+This project uses Spotify API to find desired albums/artists' discography
+### Tech Stack
+- React
+- HTML
+- Javascript
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
