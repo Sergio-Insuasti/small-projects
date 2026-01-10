@@ -1,5 +1,3 @@
-# Uses requests, beautiful soup and lxml to scrape data from Amazon
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -12,13 +10,13 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-def _clean(text: str) -> str:
+def clean(text: str) -> str:
     return " ".join(text.split()) if text else text
 
-def _extract_price(soup: BeautifulSoup) -> str | None:
+def extract_price(soup: BeautifulSoup) -> str | None:
     price_el = soup.select_one(".a-price .a-offscreen")
     if price_el and price_el.get_text(strip=True):
-        return _clean(price_el.get_text(strip=True))
+        return clean(price_el.get_text(strip=True))
 
     whole = soup.select_one(".a-price .a-price-whole")
     frac = soup.select_one(".a-price .a-price-fraction")
@@ -29,7 +27,7 @@ def _extract_price(soup: BeautifulSoup) -> str | None:
 
     alt = soup.select_one("#priceblock_ourprice, #priceblock_dealprice, #priceblock_saleprice")
     if alt and alt.get_text(strip=True):
-        return _clean(alt.get_text(strip=True))
+        return clean(alt.get_text(strip=True))
 
     return None
 
@@ -56,9 +54,9 @@ def get_product_details(product_url: str) -> dict:
 
     title_el = soup.select_one("#productTitle") or soup.select_one("#title span")
     if title_el:
-        details["title"] = _clean(title_el.get_text(strip=True))
+        details["title"] = clean(title_el.get_text(strip=True))
 
-    details["price"] = _extract_price(soup)
+    details["price"] = extract_price(soup)
 
     return details
 
