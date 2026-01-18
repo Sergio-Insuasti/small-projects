@@ -102,6 +102,47 @@ h2 {
     opacity: .95;
 }
 
+.file-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #ffffff12;
+    border: 1px solid #ffffff25;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 380px; 
+}
+
+.file-top-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.file-actions button {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #111, #333);
+    border: 1px solid #888;
+    cursor: pointer;
+}
+
+.file-actions button:hover {
+    background: linear-gradient(135deg, #222, #555);
+}
+
+.file-replace button {
+    size: 1rem;
+}
 
 .actions {
     margin-top: 16px;
@@ -133,7 +174,7 @@ button:hover {
 
 #log {
     margin-top: 14px;
-    font-size: .95rem;
+    font-size: 1.4rem;
     min-height: 1.4em;
 }
 
@@ -193,13 +234,22 @@ footer {
 
 /* Options panel gets subtle structure */
 .converter-panel--options {
-    text-align: left;
+    text-align: center;
+    
+}
+
+.file-card {
+    font-size: 24px;
+}
+
+.file-name-text {
+    text-align: center;
 }
 
 .converter-panel--options h3 {
     margin-top: 0;
     margin-bottom: 12px;
-    font-size: 1.2rem;
+    font-size: 2rem;
     opacity: 0.9;
 }
 

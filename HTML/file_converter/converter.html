@@ -27,28 +27,22 @@
         <div class="converter-layout">
           <!-- Left: file drop / picker -->
           <div class="converter-panel converter-panel--upload">
-            <div
-              id="drop"
-              class="drop"
-              tabindex="0"
-              role="button"
-              aria-label="Drop a file here or press Enter to choose"
-            >
-              <input id="picker" type="file" aria-hidden="true" />
-              <div>
-                <strong>Drop a file here</strong> or <u>click to choose</u>
-                <div class="hint">We will not overwrite your file.</div>
-              </div>
-              <div id="last" class="file-name"></div>
+           <div id="uploadWrapper">
+            <div id="drop" class="drop" tabindex="0">
+                <input id="picker" type="file" aria-hidden="true" />
+                <div>
+                    <strong>Drop a file here</strong> or <u>click to choose</u>
+                    <div class="hint">We will not overwrite your file.</div>
+                </div>
             </div>
+
+            <div id="fileCard" class="file-card" style="display:none;"></div>
+        </div>
+
           </div>
 
           <div class="converter-panel converter-panel--options">
-            <h3>Conversion Options</h3>
-
-            <label for="outputFormat" class="field-label">
-              Convert to
-            </label>
+            <h3>Convert To</h3>
             <select id="outputFormat" class="field-select">
               <option value="" selected disabled>Select a format</option>
 
