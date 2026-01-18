@@ -2,15 +2,12 @@
 ## By Sergio Insuasti and Jun Wei Tay
 
 ### About
-This project was created as part of a hackathon themed around Terrible Ideas.
-This mystery file converter will take in a file and then convert to a mystery
-file type from a list of predetermined types (.wav, .zip, .txt, .csv).
-Further to this, additional features such as fallback links/files were created
-in case of corrupted conversions, error on conversion etc.
+This project was originally created as part of a hackathon themed around
+Terrible Ideas as a Mystery File Converter. This has now been updated to 
+a user-friendly file converter that will allow users to choose their desired
+file type.
 
 ### Tech Stack
 - HTML
 - CSS
 - JavaScript
-
-Completed 3 - 5 October 2025

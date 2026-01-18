@@ -1,15 +1,13 @@
-const RANDOM_FALLBACK_URLS = [
-    "https://drive.google.com/file/d/1zpZEVnXognffJCqKY5b30rwZoOcCeeZy/view?usp=sharing",
-    "https://drive.google.com/file/d/1ZNAsuxKCui3O08UHeHV2rv8dyfjppgMP/view?usp=sharing",
-    "https://drive.google.com/file/d/1AjIqsBvLs3ttb2FAzOwI85E74EpRcsqF/view?usp=sharing",
-    "https://drive.google.com/file/d/10W2niKHqKDZFBzrvmDbYVeweaUUz2Xx9/view?usp=sharing",
-    "https://drive.google.com/file/d/1XFdRrS7OC5Fld1KjZcOVnhkpKRedRiA7/view?usp=sharing",
-    "https://drive.google.com/file/d/1PHpuaDUM-wzjcAPYKx1Vvj-WbfwHPNCr/view?usp=sharing",
-    "https://drive.google.com/file/d/1BEbvjbukUMJ8FJHdissRkY6RyWLF2_fW/view?usp=sharing",
-    "https://drive.google.com/file/d/1GiDUgoryOg7MBeqA-7TvmFG7uiIDX7ES/view?usp=sharing",
-    "https://drive.google.com/file/d/1exJxZYFKJXRaHY59fOmEplE21W_jM1-d/view?usp=sharing",
-    "https://drive.google.com/file/d/1VEa_-MAlCQiqb0PQnqNu9Bug9eXD6TCQ/view?usp=sharing"
-];
+const allowedMatrix = {
+    pdf: ['docx'],
+    docx: ['pdf'],
+    csv: ['xlsx', 'json'],
+    xlsx: ['csv', 'json'],
+    png: ['jpg', 'webp'],
+    jpg: ['png', 'webp'],
+    wav: ['mp3'],
+    mp3: ['wav']
+};
 
 const drop = document.getElementById('drop');
 const picker = document.getElementById('picker');
@@ -34,7 +32,7 @@ const converters = ['tocsv', 'totxt', 'towav', 'mysteryzip', 'surprise'];
 
 go.addEventListener('click', async () => {
     if (!file) return log('Pick or drop a file first.');
-    const target = converters[Math.floor(Math.random() * converters.length)];
+    const target = selectedOutputFormat;
 
     try {
         const buf = await file.arrayBuffer();
@@ -47,14 +45,13 @@ go.addEventListener('click', async () => {
             mysteryFallbackDownload();
             return;
         }
-        log('Conversion completed abysmally. Open at your peril!');
+        log('Conversion completed. Downloading File...');
     } catch (err) {
         console.error('[Converter error]', err);
-        log('Conversion failed successfully. Deploying Mystery Gift!');
+        log('Conversion failed. Deploying Mystery Gift!');
         mysteryFallbackDownload();
     }
 });
-
 
 async function tocsv(buf, originalName) {
     const text = safeDecode(buf);

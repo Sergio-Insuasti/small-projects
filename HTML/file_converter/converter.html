@@ -3,31 +3,86 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mystery File Converter</title>
+    <title>Mystery File Converter – Convert</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link href="./converterstyles.css" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./converterstyles.css" rel="stylesheet" />
   </head>
 
   <body>
     <div class="main-content">
       <div class="container">
         <h1>File Converter</h1>
-        <h2>Convert Any File, Hassle Free!</h2>
+        <h2>Convert Any File, Hassle Free.</h2>
 
-        <div id="drop" class="drop" tabindex="0" role="button" aria-label="Drop a file here or press Enter to choose">
-          <input id="picker" type="file" aria-hidden="true" />
-          <div>
-            <strong>Drop a file here</strong> or <u>click to choose</u>
-            <div class="hint">We will not overwrite your file!</div>
+        <p class="subtitle">
+          1. Upload a file &nbsp;·&nbsp; 2. Choose an output format &nbsp;·&nbsp; 3. Download your converted file
+        </p>
+
+        <div class="converter-layout">
+          <!-- Left: file drop / picker -->
+          <div class="converter-panel converter-panel--upload">
+            <div
+              id="drop"
+              class="drop"
+              tabindex="0"
+              role="button"
+              aria-label="Drop a file here or press Enter to choose"
+            >
+              <input id="picker" type="file" aria-hidden="true" />
+              <div>
+                <strong>Drop a file here</strong> or <u>click to choose</u>
+                <div class="hint">We will not overwrite your file.</div>
+              </div>
+              <div id="last" class="file-name"></div>
+            </div>
           </div>
-          <div id="last" class="file-name"></div>
-        </div>
 
-        <div class="actions">
+          <div class="converter-panel converter-panel--options">
+            <h3>Conversion Options</h3>
+
+            <label for="outputFormat" class="field-label">
+              Convert to
+            </label>
+            <select id="outputFormat" class="field-select">
+              <option value="" selected disabled>Select a format</option>
+
+              <optgroup label="Documents">
+                <option value="pdf">PDF (.pdf)</option>
+                <option value="docx">Word Document (.docx)</option>
+                <option value="txt">Plain Text (.txt)</option>
+              </optgroup>
+
+              <optgroup label="Data">
+                <option value="csv">CSV (.csv)</option>
+                <option value="xlsx">Excel (.xlsx)</option>
+                <option value="json">JSON (.json)</option>
+              </optgroup>
+
+              <optgroup label="Images">
+                <option value="png">PNG (.png)</option>
+                <option value="jpg">JPEG (.jpg)</option>
+                <option value="webp">WebP (.webp)</option>
+              </optgroup>
+
+              <optgroup label="Audio">
+                <option value="mp3">MP3 (.mp3)</option>
+                <option value="wav">WAV (.wav)</option>
+              </optgroup>
+            </select>
+
+            <div class="actions">
           <button id="go">Convert</button>
         </div>
+          </div>
+        </div>
+
+        
 
         <div id="log"></div>
       </div>
