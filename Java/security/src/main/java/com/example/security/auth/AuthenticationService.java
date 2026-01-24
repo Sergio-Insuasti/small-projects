@@ -4,8 +4,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.config.JwtService;
 import com.example.security.user.User;
+import com.example.security.config.JwtService;
 import com.example.security.user.Role;
 import com.example.security.user.UserRepository;
 
