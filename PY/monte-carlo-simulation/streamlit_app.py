@@ -1,74 +1,20 @@
 import streamlit as st
 import plotly.graph_objects as go
 import datetime as dt
-import yfinance as yf
-from backend.mc import run_simulation
 
+from backend.mc import run_simulation
+from state import initialise
+from portfolio_setup import setup_portfolio
 
 # ================================
 # Market Mapping
 # ================================
 
-MARKET_SUFFIX = {
-    "— Select a market —": None,
-    "United States (NASDAQ / NYSE)": "",
-    "Australia (ASX)": ".AX",
-    "London (LSE)": ".L",
-    "Toronto (TSX)": ".TO",
-    "Tokyo (TSE)": ".T",
-    "Germany (XETRA)": ".DE"
-}
-
+initialise()
 st.title("Monte Carlo Portfolio Simulator")
-
-if "portfolio" not in st.session_state:
-    st.session_state.portfolio = []
-
-if "sims" not in st.session_state:
-    st.session_state.sims = None
-
-if "time_horizon" not in st.session_state:
-    st.session_state.time_horizon = None
-
 st.subheader("Build Portfolio")
 
-market = st.selectbox(
-    "Select Market *",
-    options=list(MARKET_SUFFIX.keys()),
-    index=0
-)
-
-col1, col2 = st.columns([3, 1])
-
-with col1:
-    stock_search = st.text_input("Search Stock (e.g. AAPL, AMZN, NVDA)")
-
-with col2:
-    if st.button("Add Stock"):
-        ticker = stock_search.strip().upper()
-        suffix = MARKET_SUFFIX[market]
-
-        if not ticker:
-            st.error("Please enter a ticker.")
-            st.stop()
-
-        if suffix is None:
-            st.error("Please select a market.")
-            st.stop()
-
-        symbol = ticker + suffix
-
-        t = yf.Ticker(symbol)
-        if t.history(period="1d").empty:
-            st.error("Ticker not found for selected market.")
-            st.stop()
-
-        if symbol not in st.session_state.portfolio:
-            st.session_state.portfolio.append(symbol)
-
-    if st.button("Undo"):
-        if st.session_state.portfolio:
-            st.session_state.portfolio.pop()
+setup_portfolio()
 
 # ================================
 # Portfolio + Simulation Settings
